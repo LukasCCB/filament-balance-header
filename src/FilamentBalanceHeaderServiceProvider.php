@@ -7,7 +7,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentBalanceHeaderServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'filament-api-balance-header';
+    public static string $name = 'filament-balance-header';
 
     public function configurePackage(Package $package): void
     {

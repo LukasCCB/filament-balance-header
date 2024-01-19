@@ -3,10 +3,10 @@
 
 # Filament Environment Indicator
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/lukasccb/filament-api-balance-header.svg?include_prereleases)](https://packagist.org/packages/lukasccb/filament-api-balance-header)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/lukasccb/filament-balance-header.svg?include_prereleases)](https://packagist.org/packages/lukasccb/filament-balance-header)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/lukasccb/filament-api-balance-header/code-style.yml?branch=main&label=Code%20style&style=flat-square)
-[![Total Downloads](https://img.shields.io/packagist/dt/lukasccb/filament-api-balance-header.svg)](https://packagist.org/packages/lukasccb/filament-api-balance-header)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/lukasccb/filament-balance-header/code-style.yml?branch=main&label=Code%20style&style=flat-square)
+[![Total Downloads](https://img.shields.io/packagist/dt/lukasccb/filament-balance-header.svg)](https://packagist.org/packages/lukasccb/filament-balance-header)
 
 Never confuse your tabs with different Filament environments again.
 
@@ -20,7 +20,7 @@ Never confuse your tabs with different Filament environments again.
 | 2.x            | 3.x             | \> 8.1      |
 
 ```bash
-composer require lukasccb/filament-api-balance-header
+composer require lukasccb/filament-balance-header
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ Out of the box, this plugin adds a colored border to the top of the admin panel 
 You can customize any behaviour via the plugin object.
 
 ### Customizing the view
-Use `php artisan vendor:publish --tag="filament-api-balance-header-views"` to publish the view to the `resources/views/vendor/filament-api-balance-header` folder. After this you can customize it as you wish!
+Use `php artisan vendor:publish --tag="filament-balance-header-views"` to publish the view to the `resources/views/vendor/filament-balance-header` folder. After this you can customize it as you wish!
 
 ### Visibility
 
@@ -98,18 +98,18 @@ If you want to contribute to this packages, you may want to test it in a real Fi
 - Fork this repository to your GitHub account.
 - Create a Filament app locally.
 - Clone your fork in your Filament app's root directory.
-- In the `/filament-api-balance-header` directory, create a branch for your fix, e.g. `fix/error-message`.
+- In the `/filament-balance-header` directory, create a branch for your fix, e.g. `fix/error-message`.
 
 Install the packages in your app's `composer.json`:
 
 ```json
 "require": {
-    "lukasccb/filament-api-balance-header": "dev-fix/error-message as main-dev",
+    "lukasccb/filament-balance-header": "dev-fix/error-message as main-dev",
 },
 "repositories": [
     {
         "type": "path",
-        "url": "filament-api-balance-header"
+        "url": "filament-balance-header"
     }
 ]
 ```

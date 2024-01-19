@@ -80,7 +80,7 @@ class ApiBalanceHeaderPlugin implements Plugin
                 return '';
             }
 
-            return View::make('filament-api-balance-header::badge', [
+            return View::make('filament-balance-header::badge', [
                 'color' => $this->getColor(),
                 'environment' => ucfirst(app()->environment()),
             ]);
