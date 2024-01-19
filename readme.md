@@ -28,11 +28,11 @@ composer require lukasccb/filament-api-balance-header
 To use this plugin register it in your panel configuration:
 
 ```php
-use lukasccb\FilamentBalanceHeader\EnvironmentApiBalancePlugin;
+use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
 
 $panel
     ->plugins([
-        EnvironmentApiBalancePlugin::make(),
+        ApiBalanceHeaderPlugin::make(),
     ]);
 ```
 
@@ -50,10 +50,10 @@ Use `php artisan vendor:publish --tag="filament-api-balance-header-views"` to pu
 By default, the package checks whether you have Spatie permissions plugin installed and checks for a role called `super_admin`. You can further customize whether the indicators should be shown.
 
 ```php
-use lukasccb\FilamentBalanceHeader\EnvironmentApiBalancePlugin;
+use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
 
 $panel->plugins([
-    EnvironmentApiBalancePlugin::make()
+    ApiBalanceHeaderPlugin::make()
         ->visible(fn () => auth()->user()?->can('see_indicator'))
 ]);
 ```
@@ -63,11 +63,11 @@ $panel->plugins([
 You can overwrite the default colors if you want your own colors or need to add more. The `->color()`method accepts any Filament's Color object or a closure that returns a color object.
 
 ```php
-use lukasccb\FilamentBalanceHeader\EnvironmentApiBalancePlugin;
+use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
 use Filament\Support\Colors\Color;
 
 $panel->plugins([
-    EnvironmentApiBalancePlugin::make()
+    ApiBalanceHeaderPlugin::make()
         ->color(fn () => match (app()->environment()) {
             'production' => null,
             'staging' => Color::Orange,
@@ -81,11 +81,11 @@ $panel->plugins([
 By default, both indicators are displayed. You can turn them off separately.
 
 ```php
-use lukasccb\FilamentBalanceHeader\EnvironmentApiBalancePlugin;
+use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
 use Filament\Support\Colors\Color;
 
 $panel->plugins([
-    EnvironmentApiBalancePlugin::make()
+    ApiBalanceHeaderPlugin::make()
         ->showBadge(false)
         ->showBorder(true)            
 ]);

@@ -10,7 +10,7 @@ use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\HtmlString;
 
-class EnvironmentApiBalancePlugin implements Plugin
+class ApiBalanceHeaderPlugin implements Plugin
 {
     use EvaluatesClosures;
 
