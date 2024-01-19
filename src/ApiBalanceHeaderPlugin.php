@@ -21,6 +21,8 @@ class ApiBalanceHeaderPlugin implements Plugin
     public bool|Closure|null $showBorder = null;
 
     public array|Closure|null $color = null;
+    
+    public array|Closure|null $balance = null;
 
     public static function make(): static
     {
@@ -69,46 +71,46 @@ class ApiBalanceHeaderPlugin implements Plugin
         //
     }
 
-    public function register(Panel $panel): void
-    {
-        $panel->renderHook('panels::global-search.before', function () {
-            if (! $this->evaluate($this->visible)) {
-                return '';
-            }
-
-            if (! $this->evaluate($this->showBadge)) {
-                return '';
-            }
-
-            return View::make('filament-balance-header::badge', [
-                'color' => $this->getColor(),
-                'environment' => ucfirst(app()->environment()),
-            ]);
-        });
-
-        $panel->renderHook('panels::styles.after', function () {
-            if (! $this->evaluate($this->visible)) {
-                return '';
-            }
-
-            if (! $this->evaluate($this->showBorder)) {
-                return '';
-            }
-
-            return new HtmlString("
-                <style>
-                    .fi-topbar,
-                    .fi-sidebar {
-                        border-top: 5px solid rgb({$this->getColor()['500']}) !important;
-                    }
-
-                    .fi-topbar {
-                        height: calc(4rem + 5px) !important;
-                    }
-                </style>
-            ");
-        });
-    }
+//    public function register(Panel $panel): void
+//    {
+//        $panel->renderHook('panels::global-search.before', function () {
+//            if (! $this->evaluate($this->visible)) {
+//                return '';
+//            }
+//
+//            if (! $this->evaluate($this->showBadge)) {
+//                return '';
+//            }
+//
+//            return View::make('filament-balance-header::badge', [
+//                'color' => $this->getColor(),
+//                'environment' => ucfirst(app()->environment()),
+//            ]);
+//        });
+//
+//        $panel->renderHook('panels::styles.after', function () {
+//            if (! $this->evaluate($this->visible)) {
+//                return '';
+//            }
+//
+//            if (! $this->evaluate($this->showBorder)) {
+//                return '';
+//            }
+//
+//            return new HtmlString("
+//                <style>
+//                    .fi-topbar,
+//                    .fi-sidebar {
+//                        border-top: 5px solid rgb({$this->getColor()['500']}) !important;
+//                    }
+//
+//                    .fi-topbar {
+//                        height: calc(4rem + 5px) !important;
+//                    }
+//                </style>
+//            ");
+//        });
+//    }
 
     public function visible(bool|Closure $visible): static
     {
@@ -134,6 +136,13 @@ class ApiBalanceHeaderPlugin implements Plugin
     public function color(array|Closure $color = Color::Pink): static
     {
         $this->color = $color;
+
+        return $this;
+    }
+    
+    public function balance(array|Closure $balance): static
+    {
+        $this->balance = $balance;
 
         return $this;
     }
