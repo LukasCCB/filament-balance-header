@@ -1,9 +1,9 @@
 {
     "name": "lukasccb/filament-balance-header",
-    "description": "Indicator for the current environment inside Filament",
+    "description": "Show balance via API inside Filament",
     "license": "MIT",
     "keywords": [
-        "environment indicator",
+        "api balance",
         "filament",
         "laravel-filament"
     ],
