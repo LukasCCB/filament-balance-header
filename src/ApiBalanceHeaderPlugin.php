@@ -22,7 +22,7 @@ class ApiBalanceHeaderPlugin implements Plugin
 
     public array|Closure|null $color = null;
     
-    public array|Closure|null $balance = null;
+    public string|Closure|null $balance = null;
 
     public static function make(): static
     {
@@ -71,32 +71,33 @@ class ApiBalanceHeaderPlugin implements Plugin
         //
     }
 
-//    public function register(Panel $panel): void
-//    {
-//        $panel->renderHook('panels::global-search.before', function () {
-//            if (! $this->evaluate($this->visible)) {
-//                return '';
-//            }
-//
-//            if (! $this->evaluate($this->showBadge)) {
-//                return '';
-//            }
-//
-//            return View::make('filament-balance-header::badge', [
-//                'color' => $this->getColor(),
-//                'environment' => ucfirst(app()->environment()),
-//            ]);
-//        });
-//
-//        $panel->renderHook('panels::styles.after', function () {
-//            if (! $this->evaluate($this->visible)) {
-//                return '';
-//            }
-//
-//            if (! $this->evaluate($this->showBorder)) {
-//                return '';
-//            }
-//
+    public function register(Panel $panel): void
+    {
+        $panel->renderHook('panels::global-search.before', function () {
+            if (! $this->evaluate($this->visible)) {
+                return '';
+            }
+
+            if (! $this->evaluate($this->showBadge)) {
+                return '';
+            }
+
+            return View::make('filament-balance-header::badge', [
+                'color' => Color::Green, //$this->getColor(),
+                'environment' => $this->balance,
+            ]);
+        });
+
+        $panel->renderHook('panels::styles.after', function () {
+            if (! $this->evaluate($this->visible)) {
+                return '';
+            }
+
+            if (! $this->evaluate($this->showBorder)) {
+                return '';
+            }
+
+            return;
 //            return new HtmlString("
 //                <style>
 //                    .fi-topbar,
@@ -109,8 +110,8 @@ class ApiBalanceHeaderPlugin implements Plugin
 //                    }
 //                </style>
 //            ");
-//        });
-//    }
+        });
+    }
 
     public function visible(bool|Closure $visible): static
     {
@@ -140,7 +141,7 @@ class ApiBalanceHeaderPlugin implements Plugin
         return $this;
     }
     
-    public function balance(array|Closure $balance): static
+    public function balance(string|Closure $balance = null): static
     {
         $this->balance = $balance;
 
