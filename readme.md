@@ -1,16 +1,13 @@
-![header](./.github/resources/lukasccb-api-balance-header.png)
-
-
-# Filament Environment Indicator
+# Filament Header Balance
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lukasccb/filament-balance-header.svg?include_prereleases)](https://packagist.org/packages/lukasccb/filament-balance-header)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/lukasccb/filament-balance-header/code-style.yml?branch=main&label=Code%20style&style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/lukasccb/filament-balance-header.svg)](https://packagist.org/packages/lukasccb/filament-balance-header)
 
-Never confuse your tabs with different Filament environments again.
+Show Balance from your API or any source, displaying directly in the Header of your Filament.
 
-![Screenshot](./.github/resources/preview.gif)
+![Screenshot](./.github/resources/preview.jpg)
 
 ## Installation via Composer
 
@@ -32,13 +29,11 @@ use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
 
 $panel
     ->plugins([
-        ApiBalanceHeaderPlugin::make(),
+        ApiBalanceHeaderPlugin::make()->balance("R$ 0.00"),
     ]);
 ```
 
 ## Configuration
-
-Out of the box, this plugin adds a colored border to the top of the admin panel and a badge next to the search bar.
 
 You can customize any behaviour via the plugin object.
 
@@ -53,8 +48,19 @@ By default, the package checks whether you have Spatie permissions plugin instal
 use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
 
 $panel->plugins([
-    ApiBalanceHeaderPlugin::make()
+    ApiBalanceHeaderPlugin::make()->balance("R$ 0.00")
         ->visible(fn () => auth()->user()?->can('see_indicator'))
+]);
+```
+
+Or with Roles
+
+```php
+use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
+
+$panel->plugins([
+    ApiBalanceHeaderPlugin::make()->balance("R$ 0.00")
+        ->visible(fn () => auth()->user()?->role('admin'))
 ]);
 ```
 
@@ -78,7 +84,7 @@ $panel->plugins([
 
 ### Indicators
 
-By default, both indicators are displayed. You can turn them off separately.
+By default, both are displayed. You can turn them off separately.
 
 ```php
 use lukasccb\FilamentBalanceHeader\ApiBalanceHeaderPlugin;
@@ -90,32 +96,7 @@ $panel->plugins([
         ->showBorder(true)            
 ]);
 ```
-
-## Contributing
-
-If you want to contribute to this packages, you may want to test it in a real Filament project:
-
-- Fork this repository to your GitHub account.
-- Create a Filament app locally.
-- Clone your fork in your Filament app's root directory.
-- In the `/filament-balance-header` directory, create a branch for your fix, e.g. `fix/error-message`.
-
-Install the packages in your app's `composer.json`:
-
-```json
-"require": {
-    "lukasccb/filament-balance-header": "dev-fix/error-message as main-dev",
-},
-"repositories": [
-    {
-        "type": "path",
-        "url": "filament-balance-header"
-    }
-]
-```
-
 Now, run `composer update`.
 
-## Credits
-- [Dennis Koch](https://github.com/lukasccb)
-- [All Contributors](../../contributors)
+## Credits by Plugin Base
+- [Dennis Koch](https://github.com/pxlrbt)
