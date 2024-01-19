@@ -1,12 +1,12 @@
-![header](./.github/resources/pxlrbt-api-balance-header.png)
+![header](./.github/resources/lukasccb-api-balance-header.png)
 
 
 # Filament Environment Indicator
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/pxlrbt/filament-api-balance-header.svg?include_prereleases)](https://packagist.org/packages/pxlrbt/filament-api-balance-header)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/lukasccb/filament-api-balance-header.svg?include_prereleases)](https://packagist.org/packages/lukasccb/filament-api-balance-header)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pxlrbt/filament-api-balance-header/code-style.yml?branch=main&label=Code%20style&style=flat-square)
-[![Total Downloads](https://img.shields.io/packagist/dt/pxlrbt/filament-api-balance-header.svg)](https://packagist.org/packages/pxlrbt/filament-api-balance-header)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/lukasccb/filament-api-balance-header/code-style.yml?branch=main&label=Code%20style&style=flat-square)
+[![Total Downloads](https://img.shields.io/packagist/dt/lukasccb/filament-api-balance-header.svg)](https://packagist.org/packages/lukasccb/filament-api-balance-header)
 
 Never confuse your tabs with different Filament environments again.
 
@@ -20,7 +20,7 @@ Never confuse your tabs with different Filament environments again.
 | 2.x            | 3.x             | \> 8.1      |
 
 ```bash
-composer require pxlrbt/filament-api-balance-header
+composer require lukasccb/filament-api-balance-header
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ composer require pxlrbt/filament-api-balance-header
 To use this plugin register it in your panel configuration:
 
 ```php
-use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
+use lukasccb\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 
 $panel
     ->plugins([
@@ -50,7 +50,7 @@ Use `php artisan vendor:publish --tag="filament-api-balance-header-views"` to pu
 By default, the package checks whether you have Spatie permissions plugin installed and checks for a role called `super_admin`. You can further customize whether the indicators should be shown.
 
 ```php
-use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
+use lukasccb\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 
 $panel->plugins([
     EnvironmentIndicatorPlugin::make()
@@ -63,7 +63,7 @@ $panel->plugins([
 You can overwrite the default colors if you want your own colors or need to add more. The `->color()`method accepts any Filament's Color object or a closure that returns a color object.
 
 ```php
-use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
+use lukasccb\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 use Filament\Support\Colors\Color;
 
 $panel->plugins([
@@ -81,7 +81,7 @@ $panel->plugins([
 By default, both indicators are displayed. You can turn them off separately.
 
 ```php
-use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
+use lukasccb\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 use Filament\Support\Colors\Color;
 
 $panel->plugins([
@@ -104,7 +104,7 @@ Install the packages in your app's `composer.json`:
 
 ```json
 "require": {
-    "pxlrbt/filament-api-balance-header": "dev-fix/error-message as main-dev",
+    "lukasccb/filament-api-balance-header": "dev-fix/error-message as main-dev",
 },
 "repositories": [
     {
@@ -117,5 +117,5 @@ Install the packages in your app's `composer.json`:
 Now, run `composer update`.
 
 ## Credits
-- [Dennis Koch](https://github.com/pxlrbt)
+- [Dennis Koch](https://github.com/lukasccb)
 - [All Contributors](../../contributors)
